@@ -7,7 +7,14 @@
     "type-check": "tsc"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.6.4",
+    "@types/mongoose": "^5.11.97",
+    "antd": "^4.16.13",
+    "diskdb": "^0.1.17",
+    "mongodb": "^4.1.1",
+    "mongoose": "^6.0.2",
     "next": "latest",
+    "next-connect": "^0.10.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
@@ -15,6 +22,9 @@
     "@types/node": "^12.12.21",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
-    "typescript": "4.0"
+    "autoprefixer": "latest",
+    "postcss": "latest",
+    "tailwindcss": "^2.2.8",
+    "typescript": "latest"
   }
 }
