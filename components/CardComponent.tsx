@@ -35,7 +35,7 @@ const CardComponent: React.FC<CardProps> = ({ cards }: CardProps) => {
   const fileURL =
     "https://drive.google.com/file/d/" + cards.file + "/view?usp=sharing";
   return (
-    <div className="w-100 rounded-xl shadow-2lg group-hover:shadow-2xl relative h-full flex flex-col justify-between my-6">
+    <div className="w-100 rounded-xl shadow-2xl relative h-full flex flex-col justify-between my-6">
       {/* Company banner */}
       <div>
         <Tooltip title="Link to the document">

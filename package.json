@@ -10,7 +10,6 @@
     "@ant-design/icons": "^4.6.4",
     "@types/mongoose": "^5.11.97",
     "antd": "^4.16.13",
-    "diskdb": "^0.1.17",
     "mongodb": "^4.1.1",
     "mongoose": "^6.0.2",
     "next": "latest",
@@ -23,6 +22,7 @@
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
     "autoprefixer": "latest",
+    "merge": "^2.1.1",
     "postcss": "latest",
     "tailwindcss": "^2.2.8",
     "typescript": "latest"
