@@ -27,6 +27,8 @@ const colorList: Array<string> = [
 ];
 
 const CardComponent: React.FC<CardProps> = ({ cards }: CardProps) => {
+  console.log(cards.eligibleBranches);
+
   const dateToday = new Date();
   const deadline = new Date(cards.deadline);
   const remainingBanner = `${deadline.getDate() - dateToday.getDate()} ${
@@ -121,18 +123,23 @@ const CardComponent: React.FC<CardProps> = ({ cards }: CardProps) => {
           Eligible branches
         </p>
         <div className="flex flex-row justify-center mb-5">
-          {cards.eligibleBranches.map((branch: string, index: number) => (
-            <div
-              className="px-2 py-1 mx-1 text-white font-light text-sm rounded-lg"
-              key={index}
-              style={{
-                backgroundColor:
-                  colorList[Math.floor(Math.random() * (colorList.length + 1))],
-              }}
-            >
-              <span className="font-medium">{branch}</span>
-            </div>
-          ))}
+          {cards.eligibleBranches
+            .split("<BR/>")
+            .map((branch: string, index: number) => (
+              <div
+                className="px-2 py-1 mx-1 text-white font-light text-sm rounded-lg"
+                key={index}
+                style={{
+                  backgroundColor: `${
+                    colorList[
+                      Math.floor(Math.random() * (colorList.length + 1))
+                    ]
+                  }`,
+                }}
+              >
+                <span className="font-medium">{branch}</span>
+              </div>
+            ))}
         </div>
       </div>
       {/* Application links */}

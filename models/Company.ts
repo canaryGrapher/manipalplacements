@@ -36,7 +36,7 @@ const CompanySchema: Schema = new mongoose.Schema(
             type: String,
         },
         eligibleBranches: {
-            type: [String],
+            type: String,
             required: [true, "Please add atleast one branch"],
         },
         profile: {

@@ -7,7 +7,7 @@ export type Card = {
   offerType: string;
   ctc?: string;
   registrationLink?: string;
-  eligibleBranches: Array<string>;
+  eligibleBranches: string;
   profile?: string;
   deadline?: Date;
   standbyOffer?: boolean;
