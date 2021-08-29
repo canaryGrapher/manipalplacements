@@ -1,5 +1,5 @@
-import 'firebase/messaging'
 import * as firebase from "firebase/app";
+import 'firebase/messaging'
 import localforage from 'localforage'
 
 const firebaseCloudMessaging = {

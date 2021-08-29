@@ -20,7 +20,7 @@ const CardComponent: React.FC<CardProps> = ({ cards }: CardProps) => {
   const fileURL =
     "https://drive.google.com/file/d/" + cards.file + "/view?usp=sharing";
   return (
-    <div className="w-100 rounded-xl hover:shadow-2xl relative h-full flex flex-col justify-between my-3 bg-white border border-gray-400 hover:border-white">
+    <div className="w-100 rounded-xl hover:shadow-2xl relative h-full flex flex-col justify-start my-3 bg-white border border-gray-400 hover:border-white">
       {/* Company banner */}
       <div>
         {deadline.getDate() - dateToday.getDate() <= 5 &&
