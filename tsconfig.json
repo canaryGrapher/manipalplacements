@@ -42,7 +42,7 @@
     "**/*.tsx",
     "utils/dbConnect.js",
     "components/Layout.tsx",
-    "pages/_app.jsx",
+    "pages/_app.tsx",
   ],
   "exclude": [
     "node_modules"
