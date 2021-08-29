@@ -1,10 +1,15 @@
 import React from "react";
-import { Button } from "antd";
-import CardCompoent from "components/CardComponent";
+import { Button, Select } from "antd";
+import CardComponent from "components/CardComponent";
 import NotifyModal from "components/NotifyModal";
+import { Card } from "interfaces/Card";
+import { BranchList } from "utils/branchList";
+
+const { Option } = Select;
 
 const IndexPage: React.FC = (props: any) => {
   const [isModalVisible, setIsModalVisible] = React.useState<boolean>(false);
+  const [sortValue, setSortValue] = React.useState<string>("No Filter");
 
   //functions related to modal operation
   const showModal = () => {
@@ -19,9 +24,13 @@ const IndexPage: React.FC = (props: any) => {
     setIsModalVisible(false);
   };
 
+  const onChange = (value: string) => {
+    setSortValue(value);
+  };
+
   return (
     <React.Fragment>
-      <div className="mt-10 max-w-max">
+      <div className="mt-10 max-w-max mx-10">
         <h1 className="text-5xl font-bold mb-0 pb-0">
           Campus Placement Bulletin
         </h1>
@@ -39,12 +48,54 @@ const IndexPage: React.FC = (props: any) => {
           working on a notification service so you get notified whenever a new
           company comes to campus.
         </p>
-        <div className="mt-5">
-          <p className="pl-2 pb-0 mb-2">
+      </div>
+
+      <div className="w-full bg-gray-200 p-10">
+        <div className="text-center">
+          <h3 className="text-2xl font-medium mx-auto">Sort</h3>
+        </div>
+        <div className="flex flex-row justify-center">
+          <Select
+            showSearch
+            style={{ width: 300 }}
+            placeholder="Select a person"
+            optionFilterProp="children"
+            onChange={onChange}
+            className="mx-auto"
+          >
+            {BranchList.map((item: string, key: React.Key) => (
+              <Option key={key} value={item}>
+                {item}
+              </Option>
+            ))}
+          </Select>
+          ,
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-20 px-5 py-5 md:px-10">
+        {props.data.map((item: Card, index: React.Key) => {
+          if (sortValue === "No Filter") {
+            return <CardComponent key={index} cards={item} />;
+          } else if (
+            item.eligibleBranches.split("<BR/>").includes(sortValue) ||
+            item.eligibleBranches.split("<BR/>").includes("All Branches")
+          ) {
+            return <CardComponent key={index} cards={item} />;
+          } else {
+            return null;
+          }
+        })}
+      </div>
+
+      <div className="onesignal-customlink-container">
+        <div className="mt-16 p-10 bg-gray-300">
+          <h3 className="text-2xl font-medium">Notifications</h3>
+          <p className="pb-0 mb-2">
             Want to get notified when this lists is updated, or when the
             deadline for a company for your branch is nearing?
           </p>
-          <Button type="primary" onClick={showModal} className="ml-2">
+          <Button type="primary" onClick={showModal}>
             Notify me!
           </Button>
           <NotifyModal
@@ -53,11 +104,6 @@ const IndexPage: React.FC = (props: any) => {
             handleCancel={handleCancel}
           />
         </div>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-20 px-10">
-        {props.data.map((item, index) => (
-          <CardCompoent key={index} cards={item} />
-        ))}
       </div>
     </React.Fragment>
   );

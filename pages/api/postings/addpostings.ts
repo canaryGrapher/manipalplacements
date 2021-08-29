@@ -9,7 +9,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const { method, headers } = req;
     if (method === "POST") {
         try {
-            console.log(headers, process.env.API_TOKEN)
             if (headers.api_token === process.env.API_TOKEN) {
                 const postingObject: Card = {
                     companyName: req.body.companyName,

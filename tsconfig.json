@@ -40,7 +40,9 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "utils/dbConnect.js"
+    "utils/dbConnect.js",
+    "components/Layout.tsx",
+    "pages/_app.jsx",
   ],
   "exclude": [
     "node_modules"
