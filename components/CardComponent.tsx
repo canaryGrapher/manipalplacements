@@ -18,7 +18,7 @@ const colorList: Array<string> = [
   "#4B27E8",
   "#C70039",
   "#00B9AA",
-  "##900C3F",
+  "#900C3F",
   "#E90FD4",
   "#EE822E",
   "#471071",
