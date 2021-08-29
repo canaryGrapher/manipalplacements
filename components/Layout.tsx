@@ -18,11 +18,12 @@ const Layout = ({ children, title = "Placement Bulletin" }) => {
         <link rel="icon" href="/icon.png"></link>
       </Head>
       <PageHeader
-        className="site-page-header shadow-lg"
+        className="site-page-header shadow-lg w-full"
+        style={{ position: "fixed", backgroundColor: "#fefefe", zIndex: 300 }}
         title="Placement Bulletin"
         subTitle="Manipal"
       />
-      <main className="min-h-screen py-10">{children}</main>
+      <main className="min-h-screen pt-20 pb-10">{children}</main>
       <footer className="w-100 bg-gray-600 text-white h-20 text-center flex flex-col justify-center">
         <span>
           Created by a{" "}

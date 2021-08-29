@@ -14,8 +14,11 @@ interface CardProps {
 const CardComponent: React.FC<CardProps> = ({ cards }: CardProps) => {
   const dateToday = new Date();
   const deadline = new Date(cards.deadline);
-  const remainingBanner = `${deadline.getDate() - dateToday.getDate()} ${
-    deadline.getDate() - dateToday.getDate() === 1 ? "day" : "days"
+  const dayDifference = Math.floor(
+    (deadline.getTime() - dateToday.getTime()) / (1000 * 60 * 60 * 24)
+  );
+  const remainingBanner = `${dayDifference} ${
+    dayDifference === 1 ? "day" : "days"
   } left`;
   const fileURL =
     "https://drive.google.com/file/d/" + cards.file + "/view?usp=sharing";
@@ -24,8 +27,14 @@ const CardComponent: React.FC<CardProps> = ({ cards }: CardProps) => {
       <div>
         {/* Company banner */}
         <div>
-          {deadline.getDate() - dateToday.getDate() <= 5 &&
-          deadline.getDate() - dateToday.getDate() >= 0 ? (
+          {dayDifference > 5 ? (
+            <div className="w-full bg-green-500 text-white flex flex-row justify-center mb-3 rounded-t-lg">
+              <p className="my-auto py-1 font-medium text-lg">
+                Enough time to apply
+              </p>
+            </div>
+          ) : null}
+          {dayDifference <= 5 && dayDifference >= 0 ? (
             <div className="w-full bg-yellow-500 text-white flex flex-row justify-center mb-3 rounded-t-lg">
               <WarningOutlined className="my-auto pr-2" />
               <p className="my-auto py-1 font-medium text-lg">
@@ -33,7 +42,7 @@ const CardComponent: React.FC<CardProps> = ({ cards }: CardProps) => {
               </p>
             </div>
           ) : null}
-          {deadline.getDate() - dateToday.getDate() < 0 ? (
+          {dayDifference < 0 ? (
             <div className="w-full bg-red-500 text-white flex flex-row justify-center mb-3 rounded-t-lg">
               <CloseCircleOutlined className="my-auto pr-2" />
               <p className="my-auto py-1 font-medium text-lg">Deadline over</p>
