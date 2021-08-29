@@ -4,12 +4,17 @@ import CardComponent from "components/CardComponent";
 import NotifyModal from "components/NotifyModal";
 import { Card } from "interfaces/Card";
 import { BranchList } from "utils/branchList";
+import { firebaseCloudMessaging } from "utils/webPush";
 
 const { Option } = Select;
 
 const IndexPage: React.FC = (props: any) => {
   const [isModalVisible, setIsModalVisible] = React.useState<boolean>(false);
   const [sortValue, setSortValue] = React.useState<string>("No Filter");
+
+  React.useEffect(() => {
+    firebaseCloudMessaging.init();
+  }, []);
 
   //functions related to modal operation
   const showModal = () => {
