@@ -8,6 +8,7 @@
       "esnext"
     ],
     "allowJs": true,
+    "checkJs": false,
     "skipLibCheck": true,
     "strict": false,
     "forceConsistentCasingInFileNames": true,
@@ -43,6 +44,8 @@
     "utils/dbConnect.js",
     "components/Layout.tsx",
     "pages/_app.tsx",
+    "utils/webPush.js",
+    "pages/index.tsx",
   ],
   "exclude": [
     "node_modules"
