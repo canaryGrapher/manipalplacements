@@ -48,7 +48,7 @@ const CardComponent: React.FC<CardProps> = ({ cards }: CardProps) => {
           </a>
         </Tooltip>
         <img
-          src={`https://drive.google.com/uc?export=view&id=${cards.companyImage}`}
+          src={`${cards.companyImage}`}
           alt={cards.companyName + " Placement"}
           className="rounded-t-xl w-full h-42 object-cover"
         />
