@@ -122,12 +122,12 @@ const CardComponent: React.FC<CardProps> = ({ cards }: CardProps) => {
         <p className="text-center font-medium text-base mt-5 mb-1">
           Eligible branches
         </p>
-        <div className="flex flex-row justify-center mb-5">
+        <div className="grid grid-cols-2 gap-2 justify-center mb-5 mx-2">
           {cards.eligibleBranches
             .split("<BR/>")
             .map((branch: string, index: number) => (
               <div
-                className="px-2 py-1 mx-1 text-white font-light text-sm rounded-lg"
+                className="py-2  text-white font-light text-sm rounded-lg w-full text-center px-2 flex flex-col justify-center"
                 key={index}
                 style={{
                   backgroundColor: `${
@@ -137,7 +137,7 @@ const CardComponent: React.FC<CardProps> = ({ cards }: CardProps) => {
                   }`,
                 }}
               >
-                <span className="font-medium">{branch}</span>
+                <span className="font-medium my-auto">{branch}</span>
               </div>
             ))}
         </div>
