@@ -30,7 +30,7 @@ const Layout = ({
         </Link>
       </nav>
     </header>
-    <div className="min-h-screen mx-10 py-16">{children}</div>
+    <main className="min-h-screen mx-10 py-16">{children}</main>
     <footer className="w-100 bg-white text-black h-20 text-center flex flex-col justify-center border-t border-black">
       <span>
         Created by a{" "}

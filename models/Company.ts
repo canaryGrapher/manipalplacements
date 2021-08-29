@@ -30,6 +30,7 @@ const CompanySchema: Schema = new mongoose.Schema(
         },
         ctc: {
             type: String,
+            default: "Not specified",
         },
         registrationLink: {
             type: String,

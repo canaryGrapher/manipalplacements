@@ -9,11 +9,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const { method, headers } = req;
     if (method === "POST") {
         try {
-            if (headers.API_TOKEN === process.env.API_TOKEN) {
+            console.log(headers, process.env.API_TOKEN)
+            if (headers.api_token === process.env.API_TOKEN) {
                 const postingObject: Card = {
-                    companyName: "Reliance",
-                    offerType: "Internship + Placement",
-                    eligibleBranches: ["CSE"]
+                    companyName: req.body.companyName,
+                    offerType: req.body.offerType,
+                    ctc: req.body.ctc,
+                    registrationLink: req.body.registrationLink,
+                    eligibleBranches: req.body.eligibleBranches,
+                    profile: req.body.profile,
+                    deadline: new Date(req.body.deadline),
+                    standbyOffer: req.body.standbyOffer === "Yes" ? true : false,
+                    backlogsAllowed: req.body.backlogsAllowed === "Yes" ? true : false,
+                    description: req.body.description,
+                    file: req.body.file,
+                    companyImage: req.body.companyImage
                 }
                 const newPosting = new Company(postingObject);
                 await newPosting.save();

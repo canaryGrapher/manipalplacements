@@ -1,18 +1,24 @@
 import React from "react";
+import { Button } from "antd";
 import CardCompoent from "components/CardComponent";
-import { Modal, Button } from "antd";
+import NotifyModal from "components/NotifyModal";
 
-const cardObject = {
-  companyName: "Google",
-  offerType: "placement",
-  eligibleBranches: ["CSE", "ECE"],
-};
+const IndexPage: React.FC = (props: any) => {
+  const [isModalVisible, setIsModalVisible] = React.useState<boolean>(false);
 
-const IndexPage = () => {
-  const fileURL =
-    "https://drive.google.com/file/d/" +
-    "INSERT FILE ID HERE" +
-    "/view?usp=sharing";
+  //functions related to modal operation
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
   return (
     <React.Fragment>
       <div className="mt-10 max-w-max">
@@ -33,9 +39,25 @@ const IndexPage = () => {
           working on a notification service so you get notified whenever a new
           company comes to campus.
         </p>
+        <div className="mt-5">
+          <p className="pl-2 pb-0 mb-2">
+            Want to get notified when this lists is updated, or when the
+            deadline for a company for your branch is nearing?
+          </p>
+          <Button type="primary" onClick={showModal} className="ml-2">
+            Notify me!
+          </Button>
+          <NotifyModal
+            isVisible={isModalVisible}
+            handleOk={handleOk}
+            handleCancel={handleCancel}
+          />
+        </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-20 px-10">
-        <CardCompoent cards={cardObject} />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-20 px-10">
+        {props.data.map((item, index) => (
+          <CardCompoent key={index} cards={item} />
+        ))}
       </div>
     </React.Fragment>
   );
@@ -43,9 +65,12 @@ const IndexPage = () => {
 
 export default IndexPage;
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
   const res = await fetch(
     `${process.env.SITE_DOMAIN}/api/postings/getpostings`
   );
   const data = await res.json();
+
+  // passing the data to the page via props
+  return { props: { data } };
 }
