@@ -1,5 +1,5 @@
-import firebase from 'firebase/compat/app';
 import 'firebase/messaging'
+import firebase from 'firebase/app';
 import localforage from 'localforage'
 
 const firebaseCloudMessaging = {
@@ -8,14 +8,15 @@ const firebaseCloudMessaging = {
     },
 
     init: async function () {
-        firebase.initializeApp({
-            apiKey: "AIzaSyDNe5YdeEFBknrx-fO-TbGBLWpnygnE_fs",
-            projectId: "college-placement-ae65d",
-            messagingSenderId: "232543850019",
-            appId: "1:232543850019:web:8da6100c322fb7282a2b96",
-            measurementId: "G-L88MHJBHKC"
-        })
-
+        if (!firebase.apps.length) {
+            firebase.initializeApp({
+                apiKey: "AIzaSyDNe5YdeEFBknrx-fO-TbGBLWpnygnE_fs",
+                projectId: "college-placement-ae65d",
+                messagingSenderId: "232543850019",
+                appId: "1:232543850019:web:8da6100c322fb7282a2b96",
+                measurementId: "G-L88MHJBHKC"
+            })
+        }
         try {
             if ((await this.tokenInlocalforage()) !== null) {
                 return false

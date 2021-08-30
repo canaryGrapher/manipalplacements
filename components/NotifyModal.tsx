@@ -17,7 +17,9 @@ const NotifyModal: React.FC<ModalProps> = (props) => {
     >
       <p>Coming soon</p>
       <p className="text-xl">
-        Дайте мне дышать, ребята! Скоро будет обновление. Не заставлю вас ждать.
+        If you clicked on 'Allow' for the notifications, you will receive
+        notifications usually. I am working on customizing notifications so that
+        you get only those notifications that you need. Cheers!
       </p>
     </Modal>
   );
