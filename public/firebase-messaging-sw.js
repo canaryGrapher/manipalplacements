@@ -3,11 +3,11 @@ importScripts('https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js')
 importScripts('https://www.gstatic.com/firebasejs/7.9.1/firebase-messaging.js')
 
 firebase.initializeApp({
-    apiKey: "AIzaSyDNe5YdeEFBknrx-fO-TbGBLWpnygnE_fs",
-    projectId: "college-placement-ae65d",
-    messagingSenderId: "232543850019",
-    appId: "1:232543850019:web:8da6100c322fb7282a2b96",
-    measurementId: "G-L88MHJBHKC"
+    apiKey: `${process.env.FIREBASE_API_KEY}`,
+    projectId: `${process.env.FIREBASE_PROJECT_ID}`,
+    messagingSenderId: `${process.env.FIREBASE_MESSAGING_SENDER_ID}`,
+    appId: `${process.env.FIREBASE_APP_ID}`,
+    measurementId: `${process.env.FIREBASE_MEASUREMENT_ID}`
 })
 
 firebase.messaging()
