@@ -20,8 +20,6 @@ const CardComponent: React.FC<CardProps> = ({ cards }: CardProps) => {
   const remainingBanner = `${dayDifference} ${
     dayDifference === 1 ? "day" : "days"
   } left`;
-  const fileURL =
-    "https://drive.google.com/file/d/" + cards.file + "/view?usp=sharing";
   return (
     <div className="w-100 rounded-xl hover:shadow-2xl relative h-full flex flex-col justify-between my-3 bg-white border border-gray-400 hover:border-white">
       <div>
@@ -75,7 +73,7 @@ const CardComponent: React.FC<CardProps> = ({ cards }: CardProps) => {
           <div>
             <Tooltip title="Link to the document">
               <a
-                href={fileURL}
+                href={cards.file}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="pb-4"

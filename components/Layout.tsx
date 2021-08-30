@@ -31,6 +31,12 @@ const Layout = ({ children, title = "Placement Bulletin" }) => {
             frustrated student
           </a>
         </span>
+        <a
+          href="https://github.com/canaryGrapher/manipalplacements"
+          className="text-white"
+        >
+          Report bugs and suggest improvements on this project
+        </a>
       </footer>
     </div>
   );
