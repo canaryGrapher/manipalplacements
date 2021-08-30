@@ -61,7 +61,7 @@ const CardComponent: React.FC<CardProps> = ({ cards }: CardProps) => {
                   {cards.companyName}
                 </h2>
                 <p className="text-blue-400 text-xl py-0 my-0">
-                  Systems Engineer
+                  {cards.profile}
                 </p>
                 <p className="text-gray-500 text-sm font-medium my-0 py-0">
                   {cards.offerType}
