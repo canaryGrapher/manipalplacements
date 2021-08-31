@@ -51,7 +51,7 @@ const IndexPage: React.FC = (props: any) => {
           </span>
         </p>
         <p className="pl-2 text-lg text-gray-600 w-full md:w-1/2">
-          Finding it too hard to keep a track of all the companie coming to
+          Finding it too hard to keep a track of all the companies coming to
           campus? Yeah, me too! <br />
           This is the place where you can find all the companies that are coming
           for campus placements and make sure that you never miss one. I am also
