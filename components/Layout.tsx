@@ -23,7 +23,7 @@ const Layout = ({ children, title = "Placement Bulletin" }) => {
         title="Placement Bulletin"
         subTitle="Manipal"
       />
-      <main className="min-h-screen pt-20 pb-10">{children}</main>
+      <main className="min-h-screen">{children}</main>
       <footer className="w-100 bg-gray-600 text-white h-20 text-center flex flex-col justify-center">
         <span>
           Created by a{" "}

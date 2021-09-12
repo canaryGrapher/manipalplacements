@@ -1,8 +1,9 @@
 import React from "react";
 import Layout from "../components/Layout";
 import "tailwindcss/tailwind.css";
-import "../styles/globals.css";
+import "styles/globals.css";
 import "antd/dist/antd.css";
+import "styles/index.scss";
 import Head from "next/head";
 
 function MyApp({ Component, pageProps }) {

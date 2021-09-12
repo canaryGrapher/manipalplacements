@@ -14,17 +14,20 @@ interface CardProps {
 const CardComponent: React.FC<CardProps> = ({ cards }: CardProps) => {
   const dateToday = new Date();
   const deadline = new Date(cards.deadline);
+
+  // calculate the time left for deadline
   const dayDifference = Math.floor(
     (deadline.getTime() - dateToday.getTime()) / (1000 * 60 * 60 * 24)
   );
   const remainingBanner = `${dayDifference} ${
     dayDifference === 1 ? "day" : "days"
   } left`;
+
   return (
-    <div className="w-100 rounded-xl hover:shadow-2xl relative h-full flex flex-col justify-between my-3 bg-white border border-gray-400 hover:border-white">
+    <div className="w-100 rounded-xl hover:shadow-2xl relative h-full flex flex-col justify-between my-3 bg-white border">
       <div>
         {/* Company banner */}
-        <div>
+        {/* <div>
           {dayDifference > 5 ? (
             <div className="w-full bg-green-500 text-white flex flex-row justify-center mb-3 rounded-t-lg">
               <p className="my-auto py-1 font-medium text-lg">
@@ -46,7 +49,7 @@ const CardComponent: React.FC<CardProps> = ({ cards }: CardProps) => {
               <p className="my-auto py-1 font-medium text-lg">Deadline over</p>
             </div>
           ) : null}
-        </div>
+        </div> */}
         {/* All company related information */}
         <div className="mx-2 group-hover:text-white">
           <div className="flex flex-col mx-5 text-center">
