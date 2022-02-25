@@ -1,6 +1,9 @@
 # ManipalPlacements
 An open-sourced campus placement catalogue web application to keep a track of all the companies visiting your campus. (Needs to be set up and managed by an admin).
 
+![Logo Designs](https://user-images.githubusercontent.com/27415791/155783685-a3bb2380-cce7-4690-aac5-063569398906.jpg)
+
+
 ## Tech Stack and dependencies
 This application is made on the following stack:
 - NextJS with TypeScript
@@ -39,3 +42,6 @@ This guide will be updated soon. I am currently focusing on finishing the design
 View the upcoming designs for the upcoming designs here. Mail the creator for getting edit access to these designs
 https://www.figma.com/file/upoK6515aLCjWrGuk7pT8C/Manipal-Placement?node-id=0%3A1
 
+
+## Preview
+![Web capture_26-2-2022_1239_manipalplacements vercel app](https://user-images.githubusercontent.com/27415791/155782348-09f70505-2731-4554-a8f2-3c290677154e.jpeg)
